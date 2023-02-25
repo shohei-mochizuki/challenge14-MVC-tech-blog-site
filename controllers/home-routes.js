@@ -101,9 +101,28 @@ router.get('/dashboard/post/:id', async (req, res) => {
 });
 
 // GET for signup page ('/signup')
-
+router.get('/signup', withAuth, (req, res) => {
+  res.render('signup', { loggedIn: req.session.loggedIn });
+});
 
 // GET for login page ('/login')
+router.get('/login', withAuth, (req, res) => {
+  res.render('login', { loggedIn: req.session.loggedIn });
+});
+
+module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -207,4 +226,4 @@ router.get('/login', (req, res) => {
 
 
 
-module.exports = router;
+
