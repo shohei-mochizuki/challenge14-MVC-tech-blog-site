@@ -1,6 +1,6 @@
-<section class="card">
-  <a href="/gallery/{{id}}">
-    <header>{{name}}</header>
-    <img src="/images/{{paintings.[0].filename}}" alt="{{paintings.[0].description}}">
-  </a>
+<section class="container">
+  <h3 class="gallery-name">{{post.title}}</h3>
+  <h4>Content: {{post.content}}</h4>
+  <h4>Created by: {{post.username}}</h4>
+  <h4>Created on: {{format_time post.creation_date}}</h4>
 </section>
