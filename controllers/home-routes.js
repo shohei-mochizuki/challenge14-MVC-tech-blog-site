@@ -4,7 +4,26 @@ const { User, Post, Comment } = require('../models');
 const withAuth = require('../utils/auth'); // Custom middleware for authentification
 
 // GET for homepage ('/')
-
+router.get('/', async (req, res) => {
+  try {
+    const dbPostData = await Post.findAll({
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: ['filename', 'description'],
+      //   },
+      // ],
+    });
+    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    res.render('homepage', {
+      posts,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET for posts page ('/post/:id')
 
