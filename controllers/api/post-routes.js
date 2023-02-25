@@ -1,28 +1,24 @@
 const router = require('express').Router();
 const { Post } = require('../../models');
 
-// CREATE new user
+// Create new comment
 router.post('/', async (req, res) => {
   try {
-    const dbUserData = await User.create({
-      username: req.body.username,
-      email: req.body.email,
-      password: req.body.password,
+    const dbPostData = await Post.create({
+      title: req.body.title,
+      content: req.body.content,
+      creation_date: req.body.creation_date,
+      user_id: req.session.user_id,
     });
-
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res.status(200).json(dbUserData);
-    });
+    res.status(200).json(dbPostData);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
 
-// Login
-router.post('/login', async (req, res) => {
+// Update existing post
+router.update('/:id', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
