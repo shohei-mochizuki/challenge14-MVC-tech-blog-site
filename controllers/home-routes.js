@@ -1,7 +1,34 @@
+// Import middlewares and models
 const router = require('express').Router();
-const { Gallery, Painting } = require('../models');
-// Import the custom middleware
-const withAuth = require('../utils/auth');
+const { User, Post, Comment } = require('../models');
+const withAuth = require('../utils/auth'); // Custom middleware for authentification
+
+// GET for homepage ('/')
+
+
+// GET for posts page ('/post/:id')
+
+
+// GET for dashboard page ('/dashboard')
+
+
+// GET for add new post page ('/dashboard/newpost')
+
+
+// GET for edit/delete post page ('/dashboard/post/:id')
+
+
+// GET for signup page ('/signup')
+
+
+// GET for login page ('/login')
+
+
+
+
+
+
+
 
 // GET all galleries for homepage
 router.get('/', async (req, res) => {
@@ -80,5 +107,22 @@ router.get('/login', (req, res) => {
 
   res.render('login');
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = router;
