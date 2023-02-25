@@ -1,14 +1,28 @@
 <section class="container">
-  <h3 class="gallery-name">{{post.title}}</h3>
-  <h4>Content: {{post.content}}</h4>
-  <h4>Created by: {{post.username}}</h4>
-  <h4>Created on: {{format_time post.creation_date}}</h4>
-  <section class="flex-row justify-center">
-    {{#each post.comments as |comment|}}
-    {{> comment-details}}
-    {{/each}}
-  </section>
-  {{#if loggedIn}}
-  <!-- Add comment user input section -->
-  {{/if}}
+  <h3 class="gallery-name">...</h3>
+  <form class="edit-dish-form">
+    <label for="title">
+      Title:
+    </label>
+    <br />
+    <textarea id="title" name="title" rows="2" cols="30">
+      {{title}}
+    </textarea>
+    <br />
+    <label for="content">
+      Content:
+    </label>
+    <br />
+    <textarea id="content" name="content" rows="5" cols="30">
+      {{content}}
+    </textarea>
+    <br />
+    <button type="update" value="update">
+      Save
+    </button>
+    <button type="delete" value="delete">
+      Delete
+    </button>
+  </form>
 </section>
+<script src="/js/edit-post.js"></script>
