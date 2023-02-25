@@ -37,14 +37,17 @@ router.put('/:id', async (req, res) => {
     };
 });
 
-// Logout
-router.post('/logout', (req, res) => {
-  if (req.session.loggedIn) {
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
+// Delete post
+router.delete('/:id', async (req, res) => {
+  try {
+  const dbPostData = await Post.destroy({
+    where: {
+      id: req.params.id
+    }
+  });
+  res.status(200).json(dbPostData);
+  } catch (err) {
+    res.status(500).json(err);
   }
 });
 
