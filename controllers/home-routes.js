@@ -61,7 +61,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
       // WHERE
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', {posts, loggedIn: req.session.loggedIn });
+    res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -69,7 +69,9 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 // GET for add new post page ('/dashboard/newpost')
-
+router.get('/dashboard/newpost', withAuth, (req, res) => {
+  res.render('newpost', { loggedIn: req.session.loggedIn });
+});
 
 // GET for edit/delete post page ('/dashboard/post/:id')
 
