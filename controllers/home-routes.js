@@ -15,10 +15,7 @@ router.get('/', async (req, res) => {
       // ],
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render('homepage', {
-      posts,
-      loggedIn: req.session.loggedIn,
-    });
+    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -26,10 +23,56 @@ router.get('/', async (req, res) => {
 });
 
 // GET for posts page ('/post/:id')
-
+router.get('/post/:id', async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: [
+      //       'id',
+      //       'title',
+      //       'artist',
+      //       'exhibition_date',
+      //       'filename',
+      //       'description',
+      //     ],
+      //   },
+      // ],
+    });
+    const post = dbPostData.get({ plain: true });
+    res.render('post', { post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET for dashboard page ('/dashboard')
+router.get('/', async (req, res) => {
+  try {
+    const dbGalleryData = await Gallery.findAll({
+      include: [
+        {
+          model: Painting,
+          attributes: ['filename', 'description'],
+        },
+      ],
+    });
 
+    const galleries = dbGalleryData.map((gallery) =>
+      gallery.get({ plain: true })
+    );
+
+    res.render('homepage', {
+      galleries,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET for add new post page ('/dashboard/newpost')
 
