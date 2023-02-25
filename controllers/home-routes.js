@@ -74,7 +74,31 @@ router.get('/dashboard/newpost', withAuth, (req, res) => {
 });
 
 // GET for edit/delete post page ('/dashboard/post/:id')
-
+router.get('/dashboard/post/:id', async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: [
+      //       'id',
+      //       'title',
+      //       'artist',
+      //       'exhibition_date',
+      //       'filename',
+      //       'description',
+      //     ],
+      //   },
+      // ],
+      // WHERE
+    });
+    const post = dbPostData.get({ plain: true });
+    res.render('changepost', { post, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
 
 // GET for signup page ('/signup')
 
