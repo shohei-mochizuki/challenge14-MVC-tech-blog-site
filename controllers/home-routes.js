@@ -49,25 +49,19 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // GET for dashboard page ('/dashboard')
-router.get('/', async (req, res) => {
+router.get('/dashboard', withAuth, async (req, res) => {
   try {
-    const dbGalleryData = await Gallery.findAll({
-      include: [
-        {
-          model: Painting,
-          attributes: ['filename', 'description'],
-        },
-      ],
+    const dbPostData = await Post.findAll({
+      // include: [
+      //   {
+      //     model: Painting,
+      //     attributes: ['filename', 'description'],
+      //   },
+      // ],
+      // WHERE
     });
-
-    const galleries = dbGalleryData.map((gallery) =>
-      gallery.get({ plain: true })
-    );
-
-    res.render('homepage', {
-      galleries,
-      loggedIn: req.session.loggedIn,
-    });
+    const posts = dbPostData.map((post) => post.get({ plain: true }));
+    res.render('dashboard', {posts, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
