@@ -6,9 +6,9 @@ router.post('/', async (req, res) => {
   try {
     const dbCommentData = await Comment.create({
       content: req.body.content,
-      creation_date: "",
-      post_id: req.body,
-      user_id: req.connection,
+      creation_date: req.body.creation_date,
+      post_id: req.body.post_id,
+      user_id: req.session.user_id,
     });
       res.status(200).json(dbCommentData);
   } catch (err) {
@@ -16,5 +16,14 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+// Fetchの部分であらかじめpost_idは取得しておき、req.bodyに入れておく
+// const id = window.location.toString().split('/')[
+//  window.location.toString().split('/').length - 1];
+// method: 'POST',
+// body: JSON.stringify({
+//  content,
+//  creation_date,
+//  post_id,
 
 module.exports = router;
