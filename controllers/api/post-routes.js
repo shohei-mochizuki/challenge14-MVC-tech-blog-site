@@ -18,41 +18,23 @@ router.post('/', async (req, res) => {
 });
 
 // Update existing post
-router.update('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
-    const dbUserData = await User.findOne({
+    const dbPostData = await Post.update({
+      title: req.body.title,
+      content: req.body.content,
+      creation_date: req.body.creation_date,
+      user_id: req.session.user_id,
+    },
+    {
       where: {
-        email: req.body.email,
+        id: req.params.id,
       },
     });
-
-    if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
-
-    const validPassword = await dbUserData.checkPassword(req.body.password);
-
-    if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect email or password. Please try again!' });
-      return;
-    }
-
-    req.session.save(() => {
-      req.session.loggedIn = true;
-
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
-    });
+    res.status(200).json(dish);
   } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+      res.status(500).json(err);
+    };
 });
 
 // Logout
