@@ -1,11 +1,14 @@
+const post_id = window.location.toString().split('/')[
+ window.location.toString().split('/').length - 1];
+
 const updatePostHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#title').value.trim();
   const content = document.querySelector('#content').value.trim();
-
+  
   if (title && content) {
-    const response = await fetch('/api/post/', {
+    const response = await fetch(`/api/post/${post_id}`, {
       method: 'PUT',
       body: JSON.stringify({ title, content }),
       headers: { 'Content-Type': 'application/json' },
@@ -21,7 +24,7 @@ const updatePostHandler = async (event) => {
 
 const deletePostHandler = async (event) => {
   event.preventDefault();
-  const response = await fetch('/api/post', {
+  const response = await fetch(`/api/post/${post_id}`, {
     method: 'DELETE',
     // body: JSON.stringify({ username, email, password }),
     // headers: { 'Content-Type': 'application/json' },
@@ -40,3 +43,12 @@ document
 document
   .querySelector('#deleteBtn')
   .addEventListener('submit', deletePostHandler);
+
+  // Fetchの部分であらかじめpost_idは取得しておき、req.bodyに入れておく
+// const id = window.location.toString().split('/')[
+//  window.location.toString().split('/').length - 1];
+// method: 'POST',
+// body: JSON.stringify({
+//  content,
+//  creation_date,
+//  post_id,
