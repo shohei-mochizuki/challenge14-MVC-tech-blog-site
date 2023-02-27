@@ -1,28 +1,28 @@
-<section class="container">
-  <h3 class="gallery-name">{{post.title}}</h3>
-  <h4>Content: {{post.content}}</h4>
-  <h4>Created by: {{post.user.username}}</h4>
-  <h4>Created on: {{format_date post.createdAt}}</h4>
-  <section class="flex-row justify-center">
-    {{#each post.comments as |comment|}}
-    {{> comment-details}}
-    {{/each}}
-  </section>
-  {{#if loggedIn}}
-  <div class="row justify-space-between-md">
-  <div class="">
-    <h2 class="page-title">Add a comment</h2>
-    <form class="form newcomment-form">
-      <div class="form-group">
-        <label for="content-newcomment">Content:</label>
-        <input class="form-input" type="text" id="content-newcomment" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">Submit</button>
-      </div>
-    </form>
+<section>
+  <div class="card">
+    <h2 class="card-title">{{post.title}}</h2>
+    <h3 class="card-content">{{post.content}}</h3>
+    <p class="card-info">By {{post.user.username}} on {{format_date post.createdAt}}</p>
   </div>
-  </div>
-  <script src="../js/new-comment.js"></script>
-  {{/if}}
+</section>
+<section>
+  {{#each post.comments as |comment|}}
+  {{> comment-details}}
+  {{/each}}
+</section>
+{{#if loggedIn}}
+<div class="add-comment">
+  <h2 class="add-comment-title">Add a comment</h2>
+  <form class="form newcomment-form">
+    <div class="form-group">
+      <label for="content-newcomment"></label>
+      <input class="form-input" type="text" id="content-newcomment" />
+    </div>
+    <div class="form-group">
+      <button class="btn-submit" type="submit">Submit</button>
+    </div>
+  </form>
+</div>
+<script src="../js/new-comment.js"></script>
+{{/if}}
 </section>
