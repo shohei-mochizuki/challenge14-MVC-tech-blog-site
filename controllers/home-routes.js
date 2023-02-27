@@ -133,8 +133,8 @@ router.get('/signup', (req, res) => {
 // GET for login page ('/login')
 router.get('/login', (req, res) => {
   // LATER
-  // res.render('login', { loggedIn: req.session.loggedIn });
-  res.status(200).json('Login page!');
+  res.render('login', { loggedIn: req.session.loggedIn });
+  // res.status(200).json('Login page!');
 });
 
 module.exports = router;
