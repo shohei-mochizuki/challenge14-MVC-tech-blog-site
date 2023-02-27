@@ -19,6 +19,6 @@ const userdata = [
   },
 ];
 
-const seedUsers = () => Gallery.bulkCreate(userdata);
+const seedUsers = () => User.bulkCreate(userdata);
 
 module.exports = seedUsers;

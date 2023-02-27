@@ -1,85 +1,62 @@
-const { Painting } = require('../models');
+const { Comment } = require('../models');
 
-const paintingdata = [
+const commentdata = [
   {
-    title: 'Blossoming Apricot',
-    artist: 'LedyX',
-    exhibition_date: 'March 30, 2018',
-    gallery_id: 1,
-    filename: '01-blossoming-apricot.jpg',
-    description:
-      'Branches with pink apricot blossoms against a blue background.',
+    comment: 'Comment 1',
+    creation_date: 'March 30, 2018',
+    post_id: 1,
+    user_id: 2,
   },
   {
-    title: 'Cosmos Flowers',
-    artist: 'WStudio',
-    exhibition_date: 'May 05, 2017',
-    gallery_id: 1,
-    filename: '02-cosmos-flowers.jpg',
-    description: 'Pink cosmos flowers against a blue sky.',
+    comment: 'Comment 2',
+    creation_date: 'May 05, 2017',
+    post_id: 1,
+    user_id: 3,
   },
   {
-    title: 'Sand + Sea = Summer',
-    artist: 'S_Photo',
-    exhibition_date: 'June 10, 2019',
-    gallery_id: 2,
-    filename: '03-sand-sea-summer.jpg',
-    description: 'Sandy beach with the blue sea and sky in the background.',
+    comment: 'Comment 3',
+    creation_date: 'June 10, 2019',
+    post_id: 2,
+    user_id: 1,
   },
   {
-    title: 'Beach Chairs',
-    artist: 'icemanphotos',
-    exhibition_date: 'July 4, 2020',
-    gallery_id: 2,
-    filename: '04-beach-chairs.jpg',
-    description: 'Two beach chairs under a beach umbrella on the beach.',
+    comment: 'Comment 4',
+    creation_date: 'July 4, 2020',
+    post_id: 3,
+    user_id: 4,
   },
   {
-    title: 'Beach Sunrise',
-    artist: 'VRstudio',
-    exhibition_date: 'August 14, 2016',
-    gallery_id: 2,
-    filename: '05-beach-sunrise.jpg',
-    description: 'Sun setting in the horizon with waves lapping the shore.',
+    comment: 'Comment 5',
+    creation_date: 'August 14, 2016',
+    post_id: 3,
+    user_id: 4,
   },
   {
-    title: 'Fall Colors',
-    artist: 'DrivingJack',
-    exhibition_date: 'October 15, 2018',
-    gallery_id: 3,
-    filename: '06-fall-colors.jpg',
-    description:
-      'Trees with red, orange, yellow leaves reflected on a still lake.',
+    comment: 'Comment 6',
+    creation_date: 'October 15, 2018',
+    post_id: 4,
+    user_id: 5,
   },
   {
-    title: 'Autumn Mountains',
-    artist: 'Vitalii_Mamchuk',
-    exhibition_date: 'November 3, 2016',
-    gallery_id: 3,
-    filename: '07-autumn-mountains.jpg',
-    description:
-      'Mountains with red and yellow leaves against a background of hazy rolling hills.',
+    comment: 'Comment 7',
+    creation_date: 'November 3, 2016',
+    post_id: 4,
+    user_id: 1,
   },
   {
-    title: 'Frozen River',
-    artist: 'Vlad Sokolovsky',
-    exhibition_date: 'December 24, 2020',
-    gallery_id: 4,
-    filename: '08-frozen-river.jpg',
-    description:
-      'Trees with white frozen branches reflected on a frozen river against a light pink sky.',
+    comment: 'Comment 8',
+    creation_date: 'December 24, 2020',
+    post_id: 4,
+    user_id: 1,
   },
   {
-    title: 'Winter Home',
-    artist: 'Smit',
-    exhibition_date: 'January 20, 2018',
-    gallery_id: 4,
-    filename: '09-winter-home.jpg',
-    description:
-      'Log cabin blanketed in heavy white snow with tall snow covered pine trees in the background.',
+    comment: 'Comment 9',
+    creation_date: 'January 20, 2018',
+    post_id: 4,
+    user_id: 3,
   },
 ];
 
-const seedPaintings = () => Painting.bulkCreate(paintingdata);
+const seedComments = () => Comment.bulkCreate(commentdata);
 
-module.exports = seedPaintings;
+module.exports = seedComments;
