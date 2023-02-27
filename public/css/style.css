@@ -147,7 +147,7 @@ header {
   color: var(--light)
 }
 
-#username-login, #password-login {
+#username-login, #password-login, #username-signup, #password-signup {
   width: 30%;
   padding: 2px;
   margin: 5px;
