@@ -17,8 +17,10 @@ router.get('/', async (req, res) => {
     const posts = dbPostData.map((post) => post.get({ plain: true }));
 
     // LATER
-    // res.render('homepage', { posts, loggedIn: req.session.loggedIn });
-    res.status(200).json(posts)
+    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+    console.log(posts);
+    // TEST
+    // res.status(200).json(posts)
  
   } catch (err) {
     console.log(err);
@@ -30,25 +32,26 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
-      // include: [
-      //   {
-      //     model: Painting,
-      //     attributes: [
-      //       'id',
-      //       'title',
-      //       'artist',
-      //       'exhibition_date',
-      //       'filename',
-      //       'description',
-      //     ],
-      //   },
-      // ],
+      include: [
+        {
+          model: Comment,
+          // attributes: [
+          //   'id',
+          //   'title',
+          //   'artist',
+          //   'exhibition_date',
+          //   'filename',
+          //   'description',
+          // ],
+        },
+      ],
     });
     const post = dbPostData.get({ plain: true });
+    console.log(post);
 
     // LATER
-    // res.render('post', { post, loggedIn: req.session.loggedIn });
-    res.status(200).json(post)
+    res.render('post', { post, loggedIn: req.session.loggedIn });
+    // res.status(200).json(post)
   
   } catch (err) {
     console.log(err);
