@@ -28,22 +28,16 @@ router.get('/', async (req, res) => {
 router.get('/post/:id', async (req, res) => {
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          // attributes: [
-          //   'id',
-          //   'title',
-          //   'artist',
-          //   'exhibition_date',
-          //   'filename',
-          //   'description',
-          // ],
-        },
-      ],
+      include: [{
+        model: Comment,
+        include: [{
+          model: User,
+        }]
+      }, { model: User }],
     });
     const post = dbPostData.get({ plain: true });
-    res.render('post', { post, loggedIn: req.session.loggedIn });
+    console.log(post);
+    res.render('post', { post, loggedIn: req.session.loggedIn, commenter: "Commenter" });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
