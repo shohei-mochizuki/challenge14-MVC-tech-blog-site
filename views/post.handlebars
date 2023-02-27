@@ -9,7 +9,20 @@
     {{/each}}
   </section>
   {{#if loggedIn}}
-  <!-- Add comment user input section -->
-  <script src="./js/new-comment.js"></script>
+  <div class="row justify-space-between-md">
+  <div class="">
+    <h2 class="page-title">Add a comment</h2>
+    <form class="form newcomment-form">
+      <div class="form-group">
+        <label for="content-newcomment">Content:</label>
+        <input class="form-input" type="text" id="content-newcomment" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+  </div>
+  </div>
+  <script src="../js/new-comment.js"></script>
   {{/if}}
 </section>
