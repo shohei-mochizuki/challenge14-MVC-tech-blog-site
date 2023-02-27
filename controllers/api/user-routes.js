@@ -8,6 +8,7 @@ router.post('/', async (req, res) => {
       username: req.body.username,
       password: req.body.password,
     });
+    const userId = dbUserData.get({ plain: true }).id;
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user_id = userId;
@@ -40,7 +41,7 @@ router.post('/login', async (req, res) => {
         .json({ message: 'Incorrect password. Please try again!' });
       return;
     }
-    const userId = dbUserData.get({ plain: true }).user_id;
+    const userId = dbUserData.get({ plain: true }).id;
     req.session.save(() => {
       req.session.loggedIn = true;
       req.session.user_id = userId;
