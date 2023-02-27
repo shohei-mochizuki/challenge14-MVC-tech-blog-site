@@ -14,7 +14,7 @@
     <a href="/">Home</a>
     <a href="/dashboard">Dashboard</a>
     {{#if loggedIn}}
-    <button id="logout" class="btn-no-style">Logout</button>
+    <button id="logout" class="logout-btn">Logout</button>
     {{else}}
     <a href="/login">Login</a>
     {{/if}}
@@ -23,7 +23,7 @@
     <h1>The Tech Blog</h1>
   </header>
   <main>
-    <div class="gallery">
+    <div class="main">
       {{{body}}}
     </div>
   </main>
