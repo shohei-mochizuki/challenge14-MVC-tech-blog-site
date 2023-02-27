@@ -95,7 +95,7 @@ router.get('/dashboard/post/:id', withAuth, async (req, res) => { // withAuth
       // ],
     });
     const post = dbPostData.get({ plain: true });
-    res.render('changepost', { post, loggedIn: req.session.loggedIn });
+    res.render('test-changepost', { post, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
