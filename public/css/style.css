@@ -101,7 +101,7 @@ header {
   color: var(--light);
 }
 
-#content-newcomment, #title-newpost, #content-newpost {
+#content-newcomment, #title-newpost, #content-newpost, #title-updatepost, #content-updatepost {
   width: 95%;
   padding: 2px;
   margin: 5px;
