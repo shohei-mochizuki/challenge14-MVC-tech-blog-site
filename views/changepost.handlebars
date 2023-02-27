@@ -1,6 +1,6 @@
 <section class="container">
   <h3 class="gallery-name">Update the post ID {{post.id}}</h3>
-  <form class="edit-dish-form">
+  <form class="edit-post-form">
     <label>Title:<br />
       <input id="title" name="title" type="text" rows="2" cols="30" value="{{post.title}}" />  
     </label>
@@ -9,12 +9,12 @@
       <input id="content" name="content" type="text" rows="5" cols="30" value="{{post.content}}">
     </label>
     <br />
-    <button type="update" value="update">
-      Save
+    <button type="submit" id="updateBtn">
+      Update
     </button>
-    <button type="delete" value="delete">
+    <button type="submit" id="deleteBtn">
       Delete
     </button>
   </form>
 </section>
-<script src="/js/edit-post.js"></script>
+<script src="../js/edit-post.js"></script>

@@ -1,50 +1,42 @@
-const loginFormHandler = async (event) => {
+const updatePostHandler = async (event) => {
   event.preventDefault();
 
-  const email = document.querySelector('#email-login').value.trim();
-  const password = document.querySelector('#password-login').value.trim();
+  const title = document.querySelector('#title').value.trim();
+  const content = document.querySelector('#content').value.trim();
 
-  if (email && password) {
-    const response = await fetch('/api/users/login', {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
+  if (title && content) {
+    const response = await fetch('/api/post/', {
+      method: 'PUT',
+      body: JSON.stringify({ title, content }),
       headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
-      alert('Failed to log in.');
+      alert('Failed to update the post.');
     }
   }
 };
 
-const signupFormHandler = async (event) => {
+const deletePostHandler = async (event) => {
   event.preventDefault();
-
-  const username = document.querySelector('#username-signup').value.trim();
-  const email = document.querySelector('#email-signup').value.trim();
-  const password = document.querySelector('#password-signup').value.trim();
-
-  if (username && email && password) {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify({ username, email, password }),
-      headers: { 'Content-Type': 'application/json' },
+  const response = await fetch('/api/post', {
+    method: 'DELETE',
+    // body: JSON.stringify({ username, email, password }),
+    // headers: { 'Content-Type': 'application/json' },
     });
-
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
-      alert('Failed to sign up.');
+      alert('Failed to delete the post.');
     }
-  }
-};
+  };
 
 document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+  .querySelector('#updateBtn')
+  .addEventListener('submit', updatePostHandler);
 
 document
-  .querySelector('.signup-form')
-  .addEventListener('submit', signupFormHandler);
+  .querySelector('#deleteBtn')
+  .addEventListener('submit', deletePostHandler);
