@@ -7,7 +7,6 @@ router.post('/', async (req, res) => {
     const dbPostData = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      creation_date: req.body.creation_date,
       user_id: req.session.user_id,
     });
     res.status(200).json(dbPostData);
@@ -23,7 +22,6 @@ router.put('/:id', async (req, res) => {
     const dbPostData = await Post.update({
       title: req.body.title,
       content: req.body.content,
-      creation_date: req.body.creation_date,
       user_id: req.session.user_id,
     },
     {
