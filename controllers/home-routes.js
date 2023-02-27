@@ -7,6 +7,14 @@ const withAuth = require('../utils/auth'); // Custom middleware for authentifica
 router.get('/', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'username',
+          ],
+        },
+      ],
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
     res.render('homepage', { posts, loggedIn: req.session.loggedIn });
