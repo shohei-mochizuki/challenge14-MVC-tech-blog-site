@@ -15,7 +15,11 @@ router.get('/', async (req, res) => {
       // ],
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+
+    // LATER
+    // res.render('homepage', { posts, loggedIn: req.session.loggedIn });
+    res.status(200).json(posts)
+ 
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -41,7 +45,11 @@ router.get('/post/:id', async (req, res) => {
       // ],
     });
     const post = dbPostData.get({ plain: true });
-    res.render('post', { post, loggedIn: req.session.loggedIn });
+
+    // LATER
+    // res.render('post', { post, loggedIn: req.session.loggedIn });
+    res.status(200).json(posts)
+  
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -61,7 +69,11 @@ router.get('/dashboard', withAuth, async (req, res) => {
       // WHERE
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-    res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
+
+    // LATER
+    // res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
+    res.status(200).json(posts)
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -70,7 +82,10 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 // GET for add new post page ('/dashboard/newpost')
 router.get('/dashboard/newpost', withAuth, (req, res) => {
-  res.render('newpost', { loggedIn: req.session.loggedIn });
+
+  // LATER
+  // res.render('newpost', { loggedIn: req.session.loggedIn });
+  res.status(200).json('Dashboard new post page!');
 });
 
 // GET for edit/delete post page ('/dashboard/post/:id')
@@ -93,7 +108,11 @@ router.get('/dashboard/post/:id', async (req, res) => {
       // WHERE
     });
     const post = dbPostData.get({ plain: true });
-    res.render('changepost', { post, loggedIn: req.session.loggedIn });
+
+    // LATER
+    // res.render('changepost', { post, loggedIn: req.session.loggedIn });
+    res.status(200).json(post);
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -102,12 +121,16 @@ router.get('/dashboard/post/:id', async (req, res) => {
 
 // GET for signup page ('/signup')
 router.get('/signup', withAuth, (req, res) => {
-  res.render('signup', { loggedIn: req.session.loggedIn });
+  // LATER
+  // res.render('signup', { loggedIn: req.session.loggedIn });
+  res.status(200).json('Signup page!');
 });
 
 // GET for login page ('/login')
 router.get('/login', withAuth, (req, res) => {
-  res.render('login', { loggedIn: req.session.loggedIn });
+  // LATER
+  // res.render('login', { loggedIn: req.session.loggedIn });
+  res.status(200).json('Login page!');
 });
 
 module.exports = router;
