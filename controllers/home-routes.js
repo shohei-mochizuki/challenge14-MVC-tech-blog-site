@@ -7,23 +7,9 @@ const withAuth = require('../utils/auth'); // Custom middleware for authentifica
 router.get('/', async (req, res) => {
   try {
     const dbPostData = await Post.findAll({
-      // include: [
-      //   {
-      //     model: Painting,
-      //     attributes: ['filename', 'description'],
-      //   },
-      // ],
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
-
-    // LATER
     res.render('homepage', { posts, loggedIn: req.session.loggedIn });
-    // console.log(req.session.loggedIn);
-    // console.log(loggedIn);
-    // console.log(posts);
-    // TEST
-    // res.status(200).json(posts)
- 
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -49,12 +35,7 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
     const post = dbPostData.get({ plain: true });
-    // console.log(post);
-
-    // LATER
     res.render('post', { post, loggedIn: req.session.loggedIn });
-    // res.status(200).json(post)
-  
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
