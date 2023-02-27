@@ -111,8 +111,8 @@ router.get('/dashboard/post/:id', async (req, res) => { // withAuth
       // WHERE
     });
     const post = dbPostData.get({ plain: true });
-    console.log(post);
-    
+    // console.log(post);
+
     // LATER
     res.render('changepost', { post, loggedIn: req.session.loggedIn });
     // res.status(200).json(post);
@@ -126,8 +126,8 @@ router.get('/dashboard/post/:id', async (req, res) => { // withAuth
 // GET for signup page ('/signup')
 router.get('/signup', (req, res) => {
   // LATER
-  // res.render('signup', { loggedIn: req.session.loggedIn });
-  res.status(200).json('Signup page!');
+  res.render('signup', { loggedIn: req.session.loggedIn });
+  // res.status(200).json('Signup page!');
 });
 
 // GET for login page ('/login')
