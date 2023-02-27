@@ -111,6 +111,21 @@ header {
   font-size: 15px;
 }
 
+.new-post-btn-section {
+  text-align: center;
+}
+
+.btn-new-post {
+  background-color: var(--primary);
+  padding: 10px;
+  font-size: 20px;
+}
+
+.btn-new-post a {
+  color: white;
+  text-decoration: none;
+}
+
 .logout-btn {
   background: none;
   border: none;
