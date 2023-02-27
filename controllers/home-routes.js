@@ -48,7 +48,7 @@ router.get('/post/:id', async (req, res) => {
 
     // LATER
     // res.render('post', { post, loggedIn: req.session.loggedIn });
-    res.status(200).json(posts)
+    res.status(200).json(post)
   
   } catch (err) {
     console.log(err);
@@ -57,7 +57,7 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // GET for dashboard page ('/dashboard')
-router.get('/dashboard', withAuth, async (req, res) => {
+router.get('/dashboard', async (req, res) => { // withAuth
   try {
     const dbPostData = await Post.findAll({
       // include: [
@@ -81,7 +81,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
 });
 
 // GET for add new post page ('/dashboard/newpost')
-router.get('/dashboard/newpost', withAuth, (req, res) => {
+router.get('/dashboard/newpost', (req, res) => { // withAuth
 
   // LATER
   // res.render('newpost', { loggedIn: req.session.loggedIn });
@@ -89,7 +89,7 @@ router.get('/dashboard/newpost', withAuth, (req, res) => {
 });
 
 // GET for edit/delete post page ('/dashboard/post/:id')
-router.get('/dashboard/post/:id', async (req, res) => {
+router.get('/dashboard/post/:id', async (req, res) => { // withAuth
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
       // include: [
@@ -120,14 +120,14 @@ router.get('/dashboard/post/:id', async (req, res) => {
 });
 
 // GET for signup page ('/signup')
-router.get('/signup', withAuth, (req, res) => {
+router.get('/signup', (req, res) => {
   // LATER
   // res.render('signup', { loggedIn: req.session.loggedIn });
   res.status(200).json('Signup page!');
 });
 
 // GET for login page ('/login')
-router.get('/login', withAuth, (req, res) => {
+router.get('/login', (req, res) => {
   // LATER
   // res.render('login', { loggedIn: req.session.loggedIn });
   res.status(200).json('Login page!');
