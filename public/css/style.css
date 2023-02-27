@@ -139,6 +139,26 @@ header {
   margin: 10px;
 }
 
+.login-signup {
+  margin: 20px;
+  text-align: center;
+  border: solid black;
+  background-color: rgb(77, 70, 70);
+  color: var(--light)
+}
+
+#username-login, #password-login {
+  width: 30%;
+  padding: 2px;
+  margin: 5px;
+}
+
+.login-signup a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 .logout-btn {
   background: none;
   border: none;
