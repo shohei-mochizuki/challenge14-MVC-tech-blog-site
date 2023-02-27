@@ -16,13 +16,4 @@ router.post('/', async (req, res) => {
   }
 });
 
-// Fetchの部分であらかじめpost_idは取得しておき、req.bodyに入れておく
-// const id = window.location.toString().split('/')[
-//  window.location.toString().split('/').length - 1];
-// method: 'POST',
-// body: JSON.stringify({
-//  content,
-//  creation_date,
-//  post_id,
-
 module.exports = router;
