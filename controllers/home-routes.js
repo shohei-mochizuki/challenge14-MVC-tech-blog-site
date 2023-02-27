@@ -62,7 +62,7 @@ router.get('/post/:id', async (req, res) => {
 });
 
 // GET for dashboard page ('/dashboard')
-router.get('/dashboard', async (req, res) => { // withAuth
+router.get('/dashboard', withAuth, async (req, res) => { // withAuth
   try {
     const dbPostData = await Post.findAll({
       // include: [
@@ -86,7 +86,7 @@ router.get('/dashboard', async (req, res) => { // withAuth
 });
 
 // GET for add new post page ('/dashboard/newpost')
-router.get('/dashboard/newpost', (req, res) => { // withAuth
+router.get('/dashboard/newpost', withAuth, (req, res) => { // withAuth
 
   // LATER
   res.render('newpost', { loggedIn: req.session.loggedIn });
@@ -94,7 +94,7 @@ router.get('/dashboard/newpost', (req, res) => { // withAuth
 });
 
 // GET for edit/delete post page ('/dashboard/post/:id')
-router.get('/dashboard/post/:id', async (req, res) => { // withAuth
+router.get('/dashboard/post/:id', withAuth, async (req, res) => { // withAuth
   try {
     const dbPostData = await Post.findByPk(req.params.id, {
       // include: [
