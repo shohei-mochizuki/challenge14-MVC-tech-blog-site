@@ -24,6 +24,7 @@ nav a {
   padding: 14px 20px;
   font-size: 20px;
   font-weight: bold;
+  text-decoration: none;
   text-align: center;
 }
 
@@ -165,6 +166,7 @@ header {
   padding: 14px 20px;
   cursor: pointer;
   text-decoration: none;
+  color: var(--light);
   font-size: 20px;
   transition: color 0.1s;
   font-weight: bold;
