@@ -1,6 +1,6 @@
 const signupFormHandler = async (event) => {
   event.preventDefault();
-  console.log("BUTTON IS PUSHED");
+
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
 

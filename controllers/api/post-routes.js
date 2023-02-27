@@ -4,10 +4,11 @@ const { Post } = require('../../models');
 // Create new comment
 router.post('/', async (req, res) => {
   try {
+    console.log("HERE!");
     const dbPostData = await Post.create({
       title: req.body.title,
       content: req.body.content,
-      user_id: req.session.user_id,
+      user_id: 5,
     });
     res.status(200).json(dbPostData);
   } catch (err) {
