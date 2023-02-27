@@ -47,7 +47,7 @@ router.get('/post/:id', async (req, res) => {
       ],
     });
     const post = dbPostData.get({ plain: true });
-    console.log(post);
+    // console.log(post);
 
     // LATER
     res.render('post', { post, loggedIn: req.session.loggedIn });
@@ -74,8 +74,8 @@ router.get('/dashboard', async (req, res) => { // withAuth
     const posts = dbPostData.map((post) => post.get({ plain: true }));
 
     // LATER
-    // res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
-    res.status(200).json(posts)
+    res.render('dashboard', { posts, loggedIn: req.session.loggedIn });
+    // res.status(200).json(posts)
 
   } catch (err) {
     console.log(err);
