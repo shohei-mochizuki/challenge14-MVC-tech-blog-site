@@ -52,7 +52,9 @@ router.get('/dashboard', withAuth, async (req, res) => { // withAuth
       //     attributes: ['filename', 'description'],
       //   },
       // ],
-      // WHERE
+      where: {
+        user_id: req.session.user_id,
+      },
     });
     const posts = dbPostData.map((post) => post.get({ plain: true }));
 
@@ -91,15 +93,9 @@ router.get('/dashboard/post/:id', withAuth, async (req, res) => { // withAuth
       //     ],
       //   },
       // ],
-      // WHERE
     });
     const post = dbPostData.get({ plain: true });
-    // console.log(post);
-
-    // LATER
     res.render('changepost', { post, loggedIn: req.session.loggedIn });
-    // res.status(200).json(post);
-
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
