@@ -111,10 +111,11 @@ router.get('/dashboard/post/:id', async (req, res) => { // withAuth
       // WHERE
     });
     const post = dbPostData.get({ plain: true });
-
+    console.log(post);
+    
     // LATER
-    // res.render('changepost', { post, loggedIn: req.session.loggedIn });
-    res.status(200).json(post);
+    res.render('changepost', { post, loggedIn: req.session.loggedIn });
+    // res.status(200).json(post);
 
   } catch (err) {
     console.log(err);

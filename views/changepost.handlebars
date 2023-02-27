@@ -1,21 +1,13 @@
 <section class="container">
-  <h3 class="gallery-name">...</h3>
+  <h3 class="gallery-name">Update the post ID {{post.id}}</h3>
   <form class="edit-dish-form">
-    <label for="title">
-      Title:
+    <label>Title:<br />
+      <input id="title" name="title" type="text" rows="2" cols="30" value="{{post.title}}" />  
     </label>
     <br />
-    <textarea id="title" name="title" rows="2" cols="30">
-      {{title}}
-    </textarea>
-    <br />
-    <label for="content">
-      Content:
+    <label>Content:<br />
+      <input id="content" name="content" type="text" rows="5" cols="30" value="{{post.content}}">
     </label>
-    <br />
-    <textarea id="content" name="content" rows="5" cols="30">
-      {{content}}
-    </textarea>
     <br />
     <button type="update" value="update">
       Save
