@@ -4,7 +4,6 @@ const { Post } = require('../../models');
 // Create new comment
 router.post('/', async (req, res) => {
   try {
-    console.log("HERE!");
     const dbPostData = await Post.create({
       title: req.body.title,
       content: req.body.content,
@@ -30,7 +29,7 @@ router.put('/:id', async (req, res) => {
         id: req.params.id,
       },
     });
-    res.status(200).json(dish);
+    res.status(200).json(dbPostData);
   } catch (err) {
       res.status(500).json(err);
     };

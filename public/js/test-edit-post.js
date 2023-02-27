@@ -7,6 +7,8 @@ const updatepostFormHandler = async (event) => {
   const title = document.querySelector('#title-updatepost').value.trim();
   const content = document.querySelector('#content-updatepost').value.trim();
 
+  console.log(post_id);
+
   if (title && content) {
     const response = await fetch(`/api/post/${post_id}`, {
       method: 'PUT',
