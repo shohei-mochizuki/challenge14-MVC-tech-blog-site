@@ -87,8 +87,8 @@ router.get('/dashboard', async (req, res) => { // withAuth
 router.get('/dashboard/newpost', (req, res) => { // withAuth
 
   // LATER
-  // res.render('newpost', { loggedIn: req.session.loggedIn });
-  res.status(200).json('Dashboard new post page!');
+  res.render('newpost', { loggedIn: req.session.loggedIn });
+  // res.status(200).json('Dashboard new post page!');
 });
 
 // GET for edit/delete post page ('/dashboard/post/:id')
