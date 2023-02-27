@@ -101,9 +101,10 @@ header {
   color: var(--light);
 }
 
-#content-newcomment {
+#content-newcomment, #title-newpost, #content-newpost {
   width: 95%;
   padding: 2px;
+  margin: 5px;
 }
 
 .btn-submit {
@@ -124,6 +125,18 @@ header {
 .btn-new-post a {
   color: white;
   text-decoration: none;
+}
+
+.new-post {
+  margin: 20px;
+  text-align: center;
+  border: solid black;
+  background-color: var(--primary);
+  color: var(--light)
+}
+
+.form-group {
+  margin: 10px;
 }
 
 .logout-btn {
