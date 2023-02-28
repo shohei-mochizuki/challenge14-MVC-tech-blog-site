@@ -2,13 +2,13 @@
 
 ## DESCRIPTION
 
-This application enables you to create and manage a backend system for a e-commerce website! You can do the following actions:
+This application enables users to signup/login to the site and create/update blog posts or leave comments on posts. Even if they are not logged in, they can still see posts and comment. The summary is as follows:
 
-- Create a database which contains data of products, product categories and product tags
-- View list of categories (and associated products), list of tags (and associated products) or list of products (and an associated category and tags)
-- View information of specific category, tag or product
-- Update information on specific category, tag or product
-- Delete specific category, tag or product from the database
+- Users can signup to, login to or logout from the site.
+- When logged out, they can only view posts and comments.
+- When logged in, they can create new posts, edit/delete their own posts and leave comments.
+- Users' login credentials are saved securely (encrypted).
+- This application follows Model-View-Controller paradigm so it can be easily maintained and edited.
 
 ## TABLE OF CONTENTS
 
@@ -18,12 +18,11 @@ This application enables you to create and manage a backend system for a e-comme
 [CONTRIBUTION](#contribution)<br>
 [TESTS](#tests)<br>
 [SCREENSHOTS](#screenshots)<br>
-[DEMO](#demo)<br>
 [QUESTIONS](#questions)
 
 ## INSTALLATION
 
-This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest), 3.Node package manager and 4.Insomnia to run. In a blank folder, put necessary files (refer to the TESTS section for the details) and open the command line. In the command line, move to this folder and then type "npm install". Make sure that a folder called "node_modules" and a file called package-lock.json are created. Following libraries are used:
+This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest) and 3.Node package manager to run. In a blank folder, put necessary files (refer to the TESTS section for the details) and open the command line. In the command line, move to this folder and then type "npm install". Make sure that a folder called "node_modules" and a file called package-lock.json are created. Following libraries are used:
 
 - [express](https://www.npmjs.com/package/express)
 - [mysql2](https://www.npmjs.com/package/mysql2)
@@ -112,11 +111,6 @@ Copy the following files and folder to your computer and test this application:
 
 ![image](https://user-images.githubusercontent.com/121307266/221103637-520c1d98-bf62-470f-8519-6a8afabad9a4.png)
 ![image](https://user-images.githubusercontent.com/121307266/221103743-a7625722-9151-45ef-9770-3d6dcf517032.png)
-
-## DEMO
-
-[Demo video](https://watch.screencastify.com/v/7AoV8iMDubhwxXQWCH0i)<br>
-[Demo video (another link)](https://drive.google.com/file/d/1mPvykLB6gaKpt32RxZ0M6bevc5pHdHPN/view)
 
 ## QUESTIONS
 
