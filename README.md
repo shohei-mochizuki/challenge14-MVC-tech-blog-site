@@ -65,27 +65,48 @@ Copy the following files and folder to your computer and test this application:
 .
 ├── config/
 | └── connection.js
+├── controllers/
+| ├── api/
+| | ├── comment-routes.js
+| | ├── index.js
+| | ├── post-routes.js
+| | └── user-routes.js
+| ├── home-routes.js
+| └── index.js
 ├── db/
 | └── schema.sql
 ├── models/
-| ├── Category.js
+| ├── Comment.js
 | ├── index.js
-| ├── Product.js
-| ├── ProductTag.js
-| └── Tag.js
-├── routes/
-| ├── api/
-| | ├── category-routes.js
-| | ├── index.js
-| | ├── product-routes.js
-| | └── tag-routes.js
-| └── index.js
-├── seeds/
-| ├── category-seeds.js
-| ├── index.js
-| ├── product-seeds.js
-| ├── product-tag-seeds.js
-| └── tag-seeds.js
+| ├── Post.js
+| └── User.js
+├── public/
+| ├── css/
+| | └── style.css
+| └── js/
+| ├── edit-post.js
+| ├── login.js
+| ├── logout.js
+| ├── new-comment.js
+| ├── new-post.js
+| └── signup.js
+├── utils/
+| ├── auth.js
+| └── helpers.js
+├── views/
+| ├── layouts/
+| | └── main.handlebars
+| ├── partials/
+| | ├── comment-details.handlebars
+| | ├── dashboard-post.handlebars
+| | └── post-details.handlebars
+| ├── dashboard.handlebars
+| ├── editpost.handlebars
+| ├── homepage.handlebars
+| ├── login.handlebars
+| ├── newpost.handlebars
+| ├── post.handlebars
+| └── signup.handlebars
 ├── .env  
 ├── package.json  
 └── server.js
