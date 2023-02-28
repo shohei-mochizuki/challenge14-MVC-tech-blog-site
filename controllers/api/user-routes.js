@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+
 // Create new user
 router.post('/', async (req, res) => {
   try {
@@ -10,8 +11,8 @@ router.post('/', async (req, res) => {
     });
     const userId = dbUserData.get({ plain: true }).id;
     req.session.save(() => {
-      req.session.loggedIn = true;
-      req.session.user_id = userId;
+      req.session.loggedIn = true; // Add this to Session object (will be used to render pages)
+      req.session.user_id = userId; // Add this to Session object (will be used to render pages)
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -19,6 +20,7 @@ router.post('/', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // Login
 router.post('/login', async (req, res) => {
@@ -29,22 +31,18 @@ router.post('/login', async (req, res) => {
       },
     });
     if (!dbUserData) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect username. Please try again!' });
+      res.status(400).json({ message: 'Incorrect username. Please try again!' });
       return;
     }
     const validPassword = await dbUserData.checkPassword(req.body.password);
     if (!validPassword) {
-      res
-        .status(400)
-        .json({ message: 'Incorrect password. Please try again!' });
+      res.status(400).json({ message: 'Incorrect password. Please try again!' });
       return;
     }
     const userId = dbUserData.get({ plain: true }).id;
     req.session.save(() => {
-      req.session.loggedIn = true;
-      req.session.user_id = userId;
+      req.session.loggedIn = true; // Add this to Session object (will be used to render pages)
+      req.session.user_id = userId; // Add this to Session object (will be used to render pages)
       res.status(200).json({ user: dbUserData, message: 'You are now logged in!' });
     });
   } catch (err) {
@@ -52,6 +50,7 @@ router.post('/login', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
 
 // Logout
 router.post('/logout', (req, res) => {
@@ -63,5 +62,6 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
 
 module.exports = router;
