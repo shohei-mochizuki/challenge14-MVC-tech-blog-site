@@ -34,7 +34,6 @@ router.get('/post/:id', async (req, res) => {
       }, { model: User }],
     });
     const post = dbPostData.get({ plain: true });
-    console.log(post);
     res.render('post', { post, loggedIn: req.session.loggedIn, commenter: "Commenter" });
   } catch (err) {
     console.log(err);
