@@ -116,8 +116,9 @@ Copy the following files and folder to your computer and test this application:
 
 ## SCREENSHOTS
 
-![image](https://user-images.githubusercontent.com/121307266/221103637-520c1d98-bf62-470f-8519-6a8afabad9a4.png)
-![image](https://user-images.githubusercontent.com/121307266/221103743-a7625722-9151-45ef-9770-3d6dcf517032.png)
+![image](https://user-images.githubusercontent.com/121307266/221730640-2068afea-92b2-498a-8a67-f43b0fd05b19.png)
+![image](https://user-images.githubusercontent.com/121307266/221730694-187640f5-75f3-41b0-ab3c-a853c5998d22.png)
+![image](https://user-images.githubusercontent.com/121307266/221730732-0106df51-a539-47f2-bf1f-25d4643ee48c.png)
 
 ## QUESTIONS
 
