@@ -1,6 +1,9 @@
+// Get the post ID from the endpoint
 const post_id = window.location.toString().split('/')[
  window.location.toString().split('/').length - 1];
 
+
+// Update the post 
 const updatepostFormHandler = async (event) => {
   event.preventDefault();
 
@@ -15,13 +18,15 @@ const updatepostFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/dashboard');
+      document.location.replace('/dashboard'); // When successful, load the dashboard page
     } else {
-      alert('Failed to update a post.');
+      alert('Failed to update a post.'); // When unsuccessful, show alert
     }
   }
 };
 
+
+// Delete the post
 const deletepostFormHandler = async (event) => {
   event.preventDefault();
 
@@ -30,16 +35,18 @@ const deletepostFormHandler = async (event) => {
   });
 
   if (response.ok) {
-    document.location.replace('/dashboard');
+    document.location.replace('/dashboard'); // When successful, load the dashboard page
   } else {
-    alert('Failed to delete a post.');
+    alert('Failed to delete a post.'); // When unsuccessful, show alert
   }
 };
 
+
+// Event listeners
 document
   .querySelector('.updatepost-form')
   .addEventListener('submit', updatepostFormHandler);
 
 document
-.querySelector('.deletepost-form')
-.addEventListener('submit', deletepostFormHandler);
+  .querySelector('.deletepost-form')
+  .addEventListener('submit', deletepostFormHandler);
