@@ -18,9 +18,16 @@ This application enables users to signup/login to the site and create/update blo
 [CONTRIBUTION](#contribution)<br>
 [TESTS](#tests)<br>
 [SCREENSHOTS](#screenshots)<br>
+[DEPLOYMENT](#deployment)<br>
 [QUESTIONS](#questions)
 
 ## INSTALLATION
+
+### HEROKU
+
+If you use the application on Heroku, no installation is needed. Go to the webpage directly: [https://tech-blog-shohei.herokuapp.com/](https://tech-blog-shohei.herokuapp.com/)
+
+### LOCAL COMPUTER
 
 This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest) and 3.Node package manager to run. In a blank folder, put necessary files (refer to the TESTS section for the details) and open the command line. In the command line, move to this folder and then type "npm install". Make sure that a folder called "node_modules" and a file called package-lock.json are created. Following libraries are used:
 
@@ -36,7 +43,11 @@ This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest) a
 
 ## USAGE
 
-### Step 1. Data Preparation
+### HEROKU: Step 1. Data Preparation
+
+https://tech-blog-shohei.herokuapp.com/
+
+### LOCAL COMPUTER: Step 1. Data Preparation
 
 First you need to load your data onto MySQL server. Go to Command Line and go to the folder of this application which contains db folder and index.js. Once you're in the folder, type "mysql -u root" (if you get a server connection error, type "mysql.server start" first) and then you're ready to use MySQL. In MySQL, type "source db/schema.sql to create a database and you can exit MySQL by typing "quit" and hit Enter button.
 
@@ -119,6 +130,10 @@ Copy the following files and folder to your computer and test this application:
 ![image](https://user-images.githubusercontent.com/121307266/221730640-2068afea-92b2-498a-8a67-f43b0fd05b19.png)
 ![image](https://user-images.githubusercontent.com/121307266/221730694-187640f5-75f3-41b0-ab3c-a853c5998d22.png)
 ![image](https://user-images.githubusercontent.com/121307266/221730732-0106df51-a539-47f2-bf1f-25d4643ee48c.png)
+
+## DEPLOYMENT
+
+This application is available on HEROKU: [https://tech-blog-shohei.herokuapp.com/](https://tech-blog-shohei.herokuapp.com/)
 
 ## QUESTIONS
 
