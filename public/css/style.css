@@ -1,11 +1,9 @@
+/* General  */
 :root {
   --primary: #030929;
   --secondary: #80bdfa;
   --tertiary: #3e5b9f;
-  --quatrinary: #6c6b67;
   --light: #ffffff;
-  --dark: #182c23;
-  --error: rgb(228, 46, 1);
 }
 
 * {
@@ -13,6 +11,7 @@
   margin: 0%;
 }
 
+/* Nav & Header */
 nav {
   background-color: var(--tertiary);
   margin: 0%;
@@ -40,6 +39,7 @@ header {
   color: var(--light);
 }
 
+/* Main */
 .main {
   /* flex: 4; */
   background-color: #fff;
@@ -51,6 +51,7 @@ header {
   align-items: center;
 }
 
+/* Post & Comment cards */
 .card {
   margin: 20px;
   border: 2px solid var(--primary);
@@ -90,6 +91,7 @@ header {
   height:100%;
 }
 
+/* Form (add a post/comment, edit post, user login/signup) */
 .add-comment {
   margin: 20px;
   text-align: center;
@@ -160,6 +162,7 @@ header {
   font-weight: bold;
 }
 
+/* Logout button */
 .logout-btn {
   background: none;
   border: none;
