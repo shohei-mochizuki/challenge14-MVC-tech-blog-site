@@ -1,3 +1,4 @@
+// Signup request
 const signupFormHandler = async (event) => {
   event.preventDefault();
 
@@ -12,13 +13,15 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/'); // When successful, load the homepage
     } else {
-      alert('Failed to sign up.');
+      alert('Failed to sign up.'); // When unsuccessful, show alert
     }
   }
 };
 
+
+// Event listener
 document
   .querySelector('.signup-form')
   .addEventListener('submit', signupFormHandler);
