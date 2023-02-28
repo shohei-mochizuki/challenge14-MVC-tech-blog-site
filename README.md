@@ -29,6 +29,8 @@ If you use the application on Heroku, no installation is needed. Go to the webpa
 
 ### LOCAL COMPUTER
 
+#### Step 1. Install libraries
+
 This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest) and 3.Node package manager to run. In a blank folder, put necessary files (refer to the TESTS section for the details) and open the command line. In the command line, move to this folder and then type "npm install". Make sure that a folder called "node_modules" and a file called package-lock.json are created. Following libraries are used:
 
 - [express](https://www.npmjs.com/package/express)
@@ -41,19 +43,25 @@ This application requires 1.JavaScript, 2.Node.JS (version 16, not the latest) a
 - [express-session](https://www.npmjs.com/package/express-session)
 - [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
 
-## USAGE
-
-### HEROKU: Step 1. Data Preparation
-
-https://tech-blog-shohei.herokuapp.com/
-
-### LOCAL COMPUTER: Step 1. Data Preparation
+#### Step 2. Prepare database
 
 First you need to load your data onto MySQL server. Go to Command Line and go to the folder of this application which contains db folder and index.js. Once you're in the folder, type "mysql -u root" (if you get a server connection error, type "mysql.server start" first) and then you're ready to use MySQL. In MySQL, type "source db/schema.sql to create a database and you can exit MySQL by typing "quit" and hit Enter button.
 
-### Step 2. Website
+#### Step 3. Start the application
 
 In Command Line, type "npm start" and then you'll see a message "App listening on PORT 3001!". Go to a web browswe and type "http://localhost:3001/" to go to the homepage.
+
+## USAGE
+
+1. When you use this application for the first time, go to the signup page by clicking "Login" button at the navigation bar at the top of the page and then click "HERE for signup!" link at the bottom of the page.
+2. Input your preferable username and password. Password needs to be 8 characters or more. Username cannot be the same as others so be creative!
+3. When you come back to the site later, go to the login page and input your username and password. \*Don't worry! Your password is securely stored (encrypted) in the database!
+4. "Home" page shows the list of all posts with their title, content, poster's username and creation date.
+5. When you click a post on "Home" page, you can see the details of the post and comments on it. If you're logged in, you can leave a comment too.
+6. If you're logged in, you can go to "Dashboard" page where you can see the list of your postes.
+7. When you click "Create a new post", you'll be taken to another page where you can input a title and a content to create a new post.
+8. When you click a post on "Dashboard" page, you'll be taken to another page where you can edit the post or delete the post.
+9. Click "Logout" anytime to end the session!
 
 ## LICENSE
 
