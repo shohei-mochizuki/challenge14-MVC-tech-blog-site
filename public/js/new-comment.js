@@ -1,6 +1,8 @@
+// Get the post ID from the endpoint
 const post_id = window.location.toString().split('/')[
   window.location.toString().split('/').length - 1];
 
+// Create a comment  
 const newcommentFormHandler = async (event) => {
   event.preventDefault();
 
@@ -14,13 +16,15 @@ const newcommentFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.reload();
+      document.location.reload(); // When successful, reload the same page
     } else {
-      alert('Failed to submit a comment.');
+      alert('Failed to create a comment.'); // When unsuccessful, show alert
     }
   }
 };
 
+
+// Event listeners
 document
   .querySelector('.newcomment-form')
   .addEventListener('submit', newcommentFormHandler);
